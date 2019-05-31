@@ -1,1 +1,6 @@
-{ "cf-key": "samplecfkey" }
+{
+    "CFKey": "your cf key",
+    "zoneID": "your zone id not used for listing",
+    "apiUrl": "https://api.cloudflare.com/client/v4/zones/",
+    "email": "your email for api key"
+}
