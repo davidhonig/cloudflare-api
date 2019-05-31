@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CF API</title>
+    <title>Data selfie app</title>
 </head>
+
 <body>
-    
+    <script>
+        function sendData() {
+            if ('geolocation' in navigator) {
+                console.log('geolocation is available');
+                navigator.geolocation.getCurrentPosition(async position => {
+                    console.log(position);
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    document.getElementById('latitude').textContent = lat;
+                    document.getElementById('longitude').textContent = lon;
+                    const mood = document.getElementById('mood').value;
+                    const data = {
+                        lat,
+                        lon,
+                        mood
+                    };
+                    const options = {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
+                    const response = await fetch('/api', options);
+                    const responseData = await response.json();
+                    console.log(responseData);
+                });
+            } else {
+                console.log('geolocation is not available');
+            }
+        }
+    </script>
+
+
+    <h1>Data selfie app</h1>
+    <p>latitude: <span id="latitude">locating...</span>&deg;</p>
+    <p>longitude: <span id="longitude">locating...</span>&deg;</p>
+    <form id="inputForm">
+        <input type="text" id="mood" ` />
+        <input type="button" value="Submit" onclick="sendData()" />
+    </form>
 </body>
+
 </html>

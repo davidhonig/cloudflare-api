@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/davidhonig/cloudflare-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "cloudflare": "^2.4.1",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
   }
 }
