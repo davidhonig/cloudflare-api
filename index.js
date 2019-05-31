@@ -46,7 +46,7 @@ app.get('/info', async function (req, res) {
         };
     };
     let page = '<html><head></head><body><table>'
-    console.log('we have ' + dataset.length + ' domains');
+    console.log('listing ' + dataset.length + ' zones');
     dataset.forEach(element => {
             page += '<tr><td>' + element.name + '</td><td>' + element.status + '</td><td>' + element.plan.name + '</td></tr>';
          });
