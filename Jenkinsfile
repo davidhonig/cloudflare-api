@@ -5,6 +5,7 @@ pipeline{
     stages{
         stage("A"){
             steps{
+                GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
                 script {
                     committerEmail = sh (
                         script: 'git --no-pager show -s --format=\'%ae\'',
@@ -12,7 +13,7 @@ pipeline{
                     ).trim()
                 }
                 echo "${committerEmail}"
-                echo "${env.GIT_AUTHOR_EMAIL} and ${env.GIT_COMMITTER_EMAIL}"
+                echo "from git ${env.GIT_EMAIL}
             }
         }
     }
