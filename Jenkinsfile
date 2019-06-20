@@ -5,8 +5,7 @@ pipeline{
     stages{
         stage("A"){
             steps{
-                echo "${BUILD_USER_EMAIL}"
-                echo "${user.email}"
+                echo "${user.email} and ${user.name}"
                 echo "${GIT_AUTHOR_EMAIL} and ${GIT_COMMITTER_EMAIL}"
             }
         }
