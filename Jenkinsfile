@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage("A"){
             steps{
-                echo "{BUILD_USER_EMAIL}"
+                echo "${BUILD_USER_EMAIL}"
             }
         }
     }
