@@ -11,7 +11,7 @@ pipeline{
                         returnStdout: true
                     ).trim()
                 }
-                echo "${commiterEmail}"
+                echo "${committerEmail}"
                 echo "${env.GIT_AUTHOR_EMAIL} and ${env.GIT_COMMITTER_EMAIL}"
             }
         }
