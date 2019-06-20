@@ -7,14 +7,17 @@ pipeline{
             steps{
                 
                 script {
-                    GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
+                    GIT_EMAIL=sh(
+                        script: "git --no-pager show -s --format='%ae' $GIT_COMMIT",
+                        returnStdout: true
+                    ).trim()
                     committerEmail = sh (
                         script: 'git --no-pager show -s --format=\'%ae\'',
                         returnStdout: true
                     ).trim()
                 }
                 echo "${committerEmail}"
-                echo "from git ${env.GIT_EMAIL}
+                echo "from git ${GIT_EMAIL}
             }
         }
     }
