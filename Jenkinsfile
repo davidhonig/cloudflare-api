@@ -17,7 +17,7 @@ pipeline{
                     ).trim()
                 }
                 echo "${committerEmail}"
-                echo "from git ${GIT_EMAIL}
+                echo "from git ${GIT_EMAIL}"
             }
         }
     }
