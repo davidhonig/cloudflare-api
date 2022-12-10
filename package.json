@@ -24,7 +24,7 @@
   "homepage": "https://github.com/davidhonig/cloudflare-api#readme",
   "dependencies": {
     "cloudflare": "^2.4.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-fetch": "^2.6.0"
   }
 }
